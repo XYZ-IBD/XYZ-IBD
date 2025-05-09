@@ -236,6 +236,78 @@
             font-weight: 400;
             margin-bottom: 30px;
         }
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+            header {
+                padding: 2rem 0;
+            }
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header p {
+                font-size: 1.1rem;
+            }
+            .authors {
+                font-size: 1em;
+            }
+            .section {
+                padding: 1.2rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+                margin: 2rem 0 1rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+                margin-top: 1.5rem;
+                margin-bottom: 1rem;
+            }
+            .image-grid {
+                gap: 1rem;
+            }
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .social-links a {
+                width: 100%;
+                justify-content: center;
+                font-size: 1rem;
+                padding: 0.7rem 1rem;
+            }
+            .overview-paragraph {
+                font-size: 1.1em;
+            }
+        }
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+            header h1 {
+                font-size: 1.3rem;
+            }
+            header p {
+                font-size: 0.95rem;
+            }
+            .section {
+                padding: 0.7rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+            h3 {
+                font-size: 1rem;
+            }
+            .bullet-points li, .benchmark-links li {
+                font-size: 0.95em;
+                padding-left: 1.1rem;
+            }
+            .overview-paragraph {
+                font-size: 1em;
+            }
+        }
     </style>
 
 </head>
