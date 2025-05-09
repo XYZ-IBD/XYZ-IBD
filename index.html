@@ -29,7 +29,7 @@
             padding: 1.8rem 0;
             text-align: center;
             position: relative;
-            margin-bottom: 30px;
+            margin-bottom: 0px;
         }
         header::before {
             content: '';
@@ -63,17 +63,19 @@
             font-weight: 600;
         }
         .authors {
-            font-family: 'Georgia', serif;
+            font-family: 'Open Sans', sans-serif;
             font-size: clamp(1em, 2vw, 1.4em);
             margin-top: 30px;
-            line-height: 1.6;
+            line-height: 1.7;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         .authors .affiliation {
-            font-size: 0.9em;
-            font-style: italic;
-            margin-top: 5px;
-            color: rgba(255, 255, 255, 0.9);
+            font-family: 'Arial', sans-serif;
+            font-size: clamp(1em, 2vw, 1.2em);
+            line-height: 1.7;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            color: rgb(255, 255, 255);
         }
         h2 {
             color: #03528a;
@@ -195,15 +197,28 @@
         .social-links {
             margin-top: 30px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
         .social-links a {
             color: white;
             font-size: clamp(1em, 2vw, 1.8em);
-            margin: 0 20px;
+            margin: 0 10px;
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
+            gap: 0.5em;
+            text-align: center;
+        }
+        .social-links a img.social-icon {
+            height: 1em;
+            max-height: 1.5em;
+            min-height: 0.9em;
+            width: auto;
+            display: inline-block;
+            vertical-align: middle;
         }
         .social-links a:hover {
             color: #088ff0;
@@ -261,6 +276,7 @@
             .social-links a {
                 font-size: clamp(1em, 3vw, 1.2em);
                 margin: 0 10px;
+                text-align: center;
             }
             h2, h3 {
                 font-size: clamp(1em, 4vw, 1.8em);
@@ -292,13 +308,8 @@
                     <i class="fab fa-github"></i><span>GitHub</span>
                 </a>
                 <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/tree/main" target="_blank" rel="noopener noreferrer">
-                    <img
-                        src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg"
-                        alt="Hugging Face Logo"
-                        width="40"
-                        height="35"
-                    ><span>HuggingFace</span>
-                </a>
+                    <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Logo" width="40" height="35" class="social-icon"><span>HuggingFace</span></a>
+                    
                 <a href="https://arxiv.org/abs/2403.12345" target="_blank"><i class="fas fa-file-pdf"></i><span>Paper</span></a>
             </div>
         </div>
