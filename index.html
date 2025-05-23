@@ -257,29 +257,40 @@
                 padding: 5px;
             }
             .container {
-                padding: 10px;
+                padding: 0 1rem;
             }
             header h1 {
-                font-size: clamp(1.5em, 6vw, 2.5em);
+                font-size: 2.2rem;
             }
             header p {
                 font-size: clamp(1em, 4vw, 1.2em);
             }
             .image-grid {
-                flex-direction: column;
-                gap: 20px;
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
             .bullet-points li {
                 font-size: clamp(0.95em, 2vw, 1.1em);
                 padding-left: 25px;
             }
-            .social-links a {
-                font-size: clamp(1em, 3vw, 1.2em);
-                margin: 0 10px;
-                text-align: center;
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
             }
-            h2, h3 {
-                font-size: clamp(1em, 4vw, 1.8em);
+            .social-link {
+                width: 100%;
+                justify-content: center;
+                font-size: 1rem;
+                padding: 0.7rem 1rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+                margin: 2rem 0 1rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+                margin-top: 1.5rem;
+                margin-bottom: 1rem;
             }
             .citation {
                 font-size: clamp(0.9em, 2vw, 1em);
@@ -287,6 +298,39 @@
             .overview-paragraph {
                 font-size: clamp(1em, 3vw, 1.1em);
             }
+        }
+        @media (max-width: 480px) {
+            body {
+                font-size: 15px;
+            }
+            header h1 {
+                font-size: 1.3rem;
+            }
+            .header-subtitle {
+                font-size: 0.9rem;
+            }
+            .section-card {
+                padding: 0.7rem;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+            h3 {
+                font-size: 1rem;
+            }
+            .feature-list li {
+                font-size: 0.95em;
+                padding-left: 1.1rem;
+            }
+        }
+        .benchmark-links a,
+        .download-section a {
+            color: #ee7cb9 !important; /* hot pink */
+            font-weight: 600;
+        }
+        .benchmark-links a:hover,
+        .download-section a:hover {
+            color: #ee7cb9  !important; /* lighter hot pink on hover */
         }
     </style>
 
@@ -307,7 +351,7 @@
                 <a href="https://github.com/GodZarathustra/XYZ-IBD">
                     <i class="fab fa-github"></i><span>GitHub</span>
                 </a>
-                <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/tree/main" target="_blank" rel="noopener noreferrer">
+                <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd" target="_blank" rel="noopener noreferrer">
                     <img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Logo" width="40" height="35" class="social-icon"><span>HuggingFace</span></a>
                     
                 <a href="https://arxiv.org/abs/0000.0000" target="_blank"><i class="fas fa-file-pdf"></i><span>Paper</span></a>
@@ -354,26 +398,25 @@
         
         <section class="section">
             <h2>Benchmarks & Challenges</h2>
-                <h3>Model-based Object 6D Pose Estimation --> <a href="https://bop.felk.cvut.cz/challenges/">BOP Industrial Track</a></h3>
+                <h3><a href="https://bop.felk.cvut.cz/challenges/">BOP Industrial Track</a></h3>
                 <p>
                     The XYZ-IBD dataset is part of the <b>Benchmark for 6D Object Pose Estimation (BOP)</b> and serves as one of the official BOP-Industrial datasets for the BOP Challenge 2025. 
                     The XYZ-IBD dataset is evaluated on model-based 2D and 6D object detection tasks, following the BOP Challenge 2025 metrics and is hosted on the official BOP-Industrial Leaderboard. 
                     The challenge will also be featured at the ICCV 2025 R6D Workshop. 
                 </p>
                 <ul class="benchmark-links">
-                    <li><a href="https://bop.felk.cvut.cz/challenges/">BOP Challenge 2025 Metrics</a></li>
-                    <li><a href="https://bop.felk.cvut.cz/leaderboards/pose-detection-unseen-bop24/bop-industrial/">BOP-Industrial Leaderboard</a></li>
-                    <li><a href="https://cmp.felk.cvut.cz/sixd/workshop_2024/">ICCV 2025 R6D Workshop</a></li>
+                    <li><a href="https://bop.felk.cvut.cz/leaderboards/pose-detection-unseen-bop24/bop-industrial/"><b>BOP-Industrial Leaderboard</b></a></li>
+                    <li><a href="https://cmp.felk.cvut.cz/sixd/workshop_2025/"><b>ICCV 2025 Workshop: 10th International Workshop on Recovering 6D Object Pose (R6D)</b></a></li>
                 </ul>
 
-            <h3>Monocular Depth Estimation --> <a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1">Tricky Monocular Depth Track</a> </h3>
+            <h3><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1">Tricky Monocular Depth Track</a></h3>
             <p>
                 The XYZ-IBD dataset is also associated with the <b>Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b> for the Monocular Depth Estimation task. 
                 Evaluation on XYZ-IBD for this task follows the TRICKY 2025 metrics and is hosted on the official TRICKY 2025 Leaderboard, which will be featured as part of the TRICKY Workshop at ICCV 2025.
             </p>
             <ul class="benchmark-links">
-                <li><a href="https://codalab.lisn.upsaclay.fr/competitions/22870">TRICKY challenge 2025 submission system and Leaderboard</a></li>
-                <li><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1">ICCV 2025 TRICKY Workshop</a></li>
+                <li><a href="https://codalab.lisn.upsaclay.fr/competitions/22870"><b>TRICKY challenge 2025 submission system and Leaderboard</b></a></li>
+                <li><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1"><b>ICCV 2025 Workshop: Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b></a></li>
             </ul>
             
         </section> 
