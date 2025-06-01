@@ -6,553 +6,7 @@
     <title>XYZ-IBD</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Color Palette */
-            --primary-color: #163460;        /* Modern blue */
-            --primary-dark: #56575a;         /* Darker blue */
-            --primary-light: #7c9ed4;        /* Lighter blue */
-            --secondary-color: #64748b;      /* Slate gray */
-            --accent-color: #111010;         /* Amber accent */
-            --accent-pink:  #2166d6;         /* Modern pink */
-            --text-primary: #000000;         /* Dark gray */
-            --text-secondary: #6b7280;       /* Medium gray */
-            --background: #ffffff;           /* White */
-            --background-alt: #f8fafc;       /* Light gray */
-            --background-section: #ffffff;   /* White sections */
-            --border-color: #e5e7eb;         /* Light border */
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            
-            /* Typography */
-            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-size-xs: 0.75rem;
-            --font-size-sm: 0.875rem;
-            --font-size-base: 1rem;
-            --font-size-lg: 1.125rem;
-            --font-size-xl: 1.25rem;
-            --font-size-2xl: 1.5rem;
-            --font-size-3xl: 1.875rem;
-            --font-size-4xl: 2.25rem;
-            --font-size-5xl: 3rem;
-            
-            /* Spacing */
-            --spacing-xs: 0.5rem;
-            --spacing-sm: 0.75rem;
-            --spacing-base: 1rem;
-            --spacing-lg: 1.5rem;
-            --spacing-xl: 2rem;
-            --spacing-2xl: 3rem;
-            --spacing-3xl: 4rem;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-family);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: var(--text-primary);
-            font-size: clamp(14px, 2.2vw, 18px);
-            background-color: var(--background-alt);
-            font-weight: 400;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-xl);
-        }
-
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
-            background-image: url('images/web_bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
-            color: white;
-            padding: var(--spacing-3xl) 0;
-            text-align: center;
-            position: relative;
-            margin-bottom: 0;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(13, 65, 118, 0.7)0%, rgba(143, 145, 146, 0.5) 100%);
-        }
-
-        header .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        header h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            margin: 0;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: var(--spacing-lg);
-            color: white;
-        }
-
-        header p {
-            font-size: clamp(2rem, 3vw, 1.5rem);
-            margin: 0 auto var(--spacing-xl);
-            line-height: 1.4;
-            max-width: 1200px;
-            font-weight: 400;
-            opacity: 0.95;
-            color: white;
-        }
-
-        header p .highlight {
-            color: white;
-            font-weight: 600;
-        }
-
-        .authors {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            margin-top: var(--spacing-xl);
-            line-height: 1.6;
-            opacity: 1;
-            font-weight: 400;
-            color: white;
-            letter-spacing: 0.01em;
-        }
-
-        .authors .affiliation {
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            line-height: 1.6;
-            margin-top: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-            opacity: 1;
-            color: white;
-            font-weight: 400;
-            letter-spacing: 0.02em;
-            font-family: 'Georgia', 'Times New Roman', serif;
-        }
-
-        .authors a {
-            color: white !important;
-            text-decoration: underline;
-            font-weight: 400;
-            transition: all 0.2s ease;
-        }
-
-        .authors a:hover {
-            color: white !important;
-            text-decoration: underline;
-            opacity: 0.8;
-        }
-
-        /* Navigation Bar Styles */
-        .navbar {
-            background-color: var(--background);
-            box-shadow: 0 1px 3px var(--shadow-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .navbar .container {
-            padding: 0 var(--spacing-xl);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 60px;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 0;
-        }
-
-        .nav-item {
-            margin: 0;
-        }
-
-        .nav-link {
-            display: block;
-            padding: var(--spacing-lg) var(--spacing-xl);
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: var(--font-size-base);
-            transition: all 0.2s ease;
-            border-bottom: 2px solid transparent;
-            letter-spacing: 0.01em;
-        }
-
-        .nav-link:hover {
-            color: var(--primary-color);
-            background-color: var(--background-alt);
-            border-bottom-color: var(--primary-color);
-        }
-
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            cursor: pointer;
-            padding: var(--spacing-sm);
-        }
-
-        /* Typography */
-        h2 {
-            color: var(--primary-color);
-            /* border-bottom: 3px solid var(--primary-color); */
-            padding-bottom: var(--spacing-base);
-            margin-top: var(--spacing-1xl);
-            margin-bottom: var(--spacing-1xl);
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-        }
-
-        h3 {
-            color: var(--primary-color);
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            margin-top: var(--spacing-1xl);
-            margin-bottom: var(--spacing-lg);
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        p {
-            font-size: clamp(1rem, 2vw, 1.125rem);
-            line-height: 1.7;
-            margin-bottom: var(--spacing-lg);
-            color: var(--text-primary);
-            font-weight: 400;
-        }
-
-        .overview-paragraph {
-            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-            color: var(--text-primary);
-            font-weight: 400;
-            margin-bottom: var(--spacing-xl);
-            line-height: 1.6;
-        }
-
-        /* Sections */
-        .section {
-            margin: var(--spacing-2xl) 0;
-            background-color: var(--background-section);
-            padding: var(--spacing-2xl);
-            border-radius: 12px;
-            box-shadow: 0 1px 3px var(--shadow-color);
-            border: 1px solid var(--border-color);
-        }
-
-        /* Images */
-        .image-grid {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-1xl);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .image-container {
-            text-align: center;
-            width: 100%;
-        }
-
-        .image-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            /* box-shadow: 0 4px 6px var(--shadow-color); */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .image-container img:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .image-caption {
-            margin-top: var(--spacing-base);
-            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
-            color: var(--text-secondary);
-            font-style: italic;
-            line-height: 1.5;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Lists */
-        .bullet-points {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: var(--spacing-xl);
-            font-size: clamp(1rem, 2vw, 1.125rem);
-            color: var(--text-primary);
-        }
-
-        .bullet-points li {
-            margin-bottom: var(--spacing-lg);
-            position: relative;
-            padding-left: 2rem;
-            line-height: 1.6;
-        }
-
-        .bullet-points li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            font-size: 1.5em;
-            top: -0.1em;
-            line-height: 1;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .highlight {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        /* Download Section */
-        .download-section {
-            background-color: var(--background-alt);
-            padding: var(--spacing-xl);
-            border-radius: 8px;
-            margin: var(--spacing-xl) 0;
-            border: 1px solid var(--border-color);
-        }
-
-        .citation {
-            background-color: var(--background-alt);
-            padding: var(--spacing-xl);
-            border-radius: 8px;
-            font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
-            font-size: clamp(0.875rem, 1.8vw, 1rem);
-            line-height: 1.6;
-            white-space: pre-wrap;
-            border: 1px solid var(--border-color);
-            text-align: left;
-            color: var(--text-secondary);
-        }
-
-        .benchmark-links {
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: var(--spacing-lg);
-            font-size: clamp(1rem, 2vw, 1.125rem);
-        }
-
-        .benchmark-links li {
-            margin-bottom: var(--spacing-base);
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .benchmark-links li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            font-size: 1.25em;
-            top: -0.05em;
-            line-height: 1;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        /* Links */
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            font-weight: 500;
-        }
-
-        a:hover {
-            color: var(--primary-light);
-        }
-
-        .benchmark-links a,
-        .download-section a {
-            color: var(--accent-pink) !important;
-            font-weight: 500;
-        }
-
-        .benchmark-links a:hover,
-        .download-section a:hover {
-            color: var(--primary-color) !important;
-        }
-
-        /* Social Links */
-        .social-links {
-            margin-top: var(--spacing-xl);
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-lg);
-            flex-wrap: wrap;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: var(--spacing-sm);
-            padding: var(--spacing-sm) var(--spacing-base);
-            border-radius: 6px;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            font-weight: 500;
-        }
-
-        .social-links a img.social-icon {
-            height: 1em;
-            width: auto;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .social-links a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .social-links span {
-            font-size: 0.9em;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Offset for fixed navbar when jumping to sections */
-        section[id] {
-            scroll-margin-top: 40px;
-        }
-
-        /* Mobile Navigation */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 var(--spacing-base);
-            }
-
-            .navbar .container {
-                padding: 0 var(--spacing-base);
-            }
-
-            .nav-content {
-                justify-content: space-between;
-                min-height: 50px;
-            }
-
-            .nav-toggle {
-                display: block;
-            }
-
-            .nav-menu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: var(--background);
-                flex-direction: column;
-                box-shadow: 0 4px 6px var(--shadow-color);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-
-            .nav-menu.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav-link {
-                padding: var(--spacing-base) var(--spacing-lg);
-                border-bottom: 1px solid var(--border-color);
-                border-left: none;
-                font-size: var(--font-size-base);
-            }
-
-            .nav-link:hover {
-                background-color: var(--background-alt);
-                border-bottom-color: var(--border-color);
-                border-left: 3px solid var(--primary-color);
-            }
-
-            .section {
-                margin: var(--spacing-xl) 0;
-                padding: var(--spacing-lg);
-            }
-
-            .bullet-points li {
-                font-size: var(--font-size-base);
-                padding-left: 1.5rem;
-            }
-
-            .social-links {
-                flex-direction: column;
-                gap: var(--spacing-base);
-            }
-
-            h2 {
-                font-size: var(--font-size-2xl);
-                margin: var(--spacing-xl) 0 var(--spacing-lg);
-            }
-
-            h3 {
-                font-size: var(--font-size-xl);
-                margin-top: var(--spacing-lg);
-                margin-bottom: var(--spacing-base);
-            }
-        }
-
-        @media (max-width: 480px) {
-            body {
-                font-size: 15px;
-            }
-
-            header h1 {
-                font-size: var(--font-size-3xl);
-            }
-
-            .section {
-                padding: var(--spacing-base);
-            }
-
-            h2 {
-                font-size: var(--font-size-xl);
-            }
-
-            h3 {
-                font-size: var(--font-size-lg);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
@@ -561,11 +15,11 @@
             <h1>XYZ-IBD</h1>
             <p><span class="highlight">A High-precision Bin-picking Dataset for Object 6D pose estimation and Monocular Depth Estimation Capturing Real-world Industrial Complexity</span></p>
             <div class="authors">
-                <a href="https://demianjh.github.io/">Junwen Huang</a><sup>1,2</sup>, Jizhong Liang<sup>3,5</sup>, Jiaqi Hu<sup>1</sup>, <a href="https://scholar.google.de/citations?user=LIhGM2YAAAAJ&hl=de">Martin Sundermeyer</a><sup>4</sup>, <a href="https://scholar.google.com/citations?user=a5RZKIkAAAAJ&hl=de">Peter KT Yu</a><sup>5</sup>, <a href="https://www.professoren.tum.de/navab-nassir">Nassir Navab</a><sup>1,2</sup>, <a href="https://www.cs.cit.tum.de/camp/members/benjamin-busam/">Benjamin Busam</a><sup>1,2</sup>
+                <a href="https://demianjh.github.io/">Junwen Huang</a><sup>1,2</sup>,  Jizhong Liang<sup>3,5</sup>,  Jiaqi Hu<sup>1</sup>, <a href="https://scholar.google.de/citations?user=LIhGM2YAAAAJ&hl=de">Martin Sundermeyer</a><sup>4</sup>,  <a href="https://scholar.google.com/citations?user=a5RZKIkAAAAJ&hl=de">Peter KT Yu</a><sup>5</sup>,  <a href="https://www.professoren.tum.de/navab-nassir">Nassir Navab</a><sup>1,2</sup>,  <a href="https://www.cs.cit.tum.de/camp/members/benjamin-busam/">Benjamin Busam</a><sup>1,2</sup>
                 
                 <div class="affiliation">
-                    <sup>1</sup>Technical University of Munich, <sup>2</sup>Munich Center for Machine Learning, 
-                    <sup>3</sup>Shanghai Jiaotong University, <sup>4</sup>Google, <sup>5</sup>XYZ Robotics
+                    <sup>1</sup>Technical University of Munich,&nbsp;&nbsp;&nbsp; <sup>2</sup>Munich Center for Machine Learning, <br>
+                    <sup>3</sup>Shanghai Jiaotong University,&nbsp;&nbsp;&nbsp; <sup>4</sup>Google,&nbsp;&nbsp;&nbsp; <sup>5</sup>XYZ Robotics
                 </div>
             </div>
             <div class="social-links">
@@ -610,12 +64,12 @@
 
     <div class="container">
         <section class="section" id="overview">
-            <h2>Overview</h2>
+            <h2>Introduction</h2>
             <p class="overview-paragraph">
                 The XYZ Industrial Bin Picking Dataset (XYZ-IBD) is a bin-picking dataset for <b>6D pose estimation</b> and <b>depth estimation</b>, capturing real-world industrial-grade complexity through <b>challenging geometries, materials, occlusions and clutter</b>. The dataset represents authentic robotic grasping scenarios with <b>millimeter-accurate annotations</b>.
             </p>
 
-            <h3>Dataset Properties</h3>
+            <!-- <h3>Dataset Properties</h3> -->
             <ul class="bullet-points">
                 <li><span class="highlight">Objects: </span> 15 highly-reflective industrial parts with various shapes and sizes (diameters ranging 5cm~30cm)</li>
                 <li><span class="highlight">Scenes: </span> 75 scenes, 22k RGB/grayscale/depth imagesand 91k milimeter-level 6D pose annotations</li>
@@ -625,7 +79,62 @@
                 <li><span class="highlight">Synthetic Data:</span> Realistic bin-picking scenes similated with BlenderProc, providing 50k+ synthetic training images</li>
             </ul><br>
 
-            <h3>Scene Examples</h3>
+            
+        </section>
+
+        <section class="section box" id="benchmarks">
+            <h2>Benchmarks & Challenges</h2>
+                <h3><a href="https://bop.felk.cvut.cz/challenges/"><b>BOP Industrial Track</b></a></h3>
+                <p class="overview-paragraph">
+                    The XYZ-IBD dataset is part of the <b>Benchmark for 6D Object Pose Estimation (BOP)</b> and serves as one of the official BOP-Industrial datasets for the BOP Challenge 2025. 
+                    The XYZ-IBD dataset is evaluated on model-based 2D and 6D object detection tasks, following the BOP Challenge 2025 metrics and is hosted on the official BOP-Industrial Leaderboard. 
+                    The challenge will also be featured at the ICCV 2025 R6D Workshop. 
+                </p>
+                <ul class="benchmark-links">
+                    <li><a href="https://bop.felk.cvut.cz/leaderboards/pose-detection-unseen-bop24/bop-industrial/"><b>BOP Challenge 2025 Industrial Track</b></a></li>
+                    <li><a href="https://cmp.felk.cvut.cz/sixd/workshop_2025/"><b>ICCV 2025 Workshop: 10th International Workshop on Recovering 6D Object Pose (R6D)</b></a></li>
+                </ul>
+            
+                <br>
+            
+                <h3><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1"><b>Tricky Monocular Depth Track</b></a></h3>
+            <p class="overview-paragraph">
+                The XYZ-IBD dataset is also associated with the <b>Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b> for the Monocular Depth Estimation task. 
+                Evaluation on XYZ-IBD for this task follows the TRICKY 2025 metrics and is hosted on the official TRICKY 2025 Leaderboard, which will be featured as part of the TRICKY Workshop at ICCV 2025.
+            </p>
+            <ul class="benchmark-links">
+                <li><a href="https://codalab.lisn.upsaclay.fr/competitions/22870"><b>TRICKY challenge 2025 submission system and Leaderboard</b></a></li>
+                <li><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1"><b>ICCV 2025 Workshop: Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b></a></li>
+            </ul>
+            
+        </section> 
+
+        
+        <section class="section box" id="download">
+            <h2>Download</h2>
+            <div class="download-section">
+                <p class="overview-paragraph">
+                    The pose estimation dataset is available for download at the following links. You can also find the dataset in both the <a href="https://bop.felk.cvut.cz/datasets/">BOP</a> website or <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/tree/main">HuggingFace</a>.</p>
+                <h3>Object 6D Pose Estimation</h3>
+                <ul class="benchmark-links">
+                    <li>PBR-BlenderProc BOP format training images <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_train_pbr.zip">[Part 1]</a>
+                    <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_train_pbr_part2.zip">[Part 2]</a> </li>
+                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_val.zip">Validation Data</a></li>
+                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_test_all.zip">Testing Data</a></li>
+                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_models.zip">Object Models</a></li>
+                </ul>
+                <br>
+                <h3>Depth Estimation</h3>
+                <p class="overview-paragraph">
+                    The depth estimation dataset is available for download at the following links. You can also find the dataset in the <a href="https://sites.google.com/view/iccv25tricky/home">TRICKY</a> website.</p>
+                <ul class="benchmark-links">
+                    <li><a href="https://1drv.ms/f/c/86b9ea593df47805/Ej28RZ5pJLdNrWqCJsKaSQwB739NpkC4EoBtj2fz2VShLw?e=PeP6Dz">Real & Synthetic Training Data</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="scene-examples">
+        <h3>Scene Examples</h3>
             <div class="image-grid">
                 <div class="image-container">
                     <img src="images/teaser_v3.png" alt="Teaser Figure"> 
@@ -643,69 +152,22 @@
                     <img src="images/cad_ver.png" alt="CAD models of the industrial parts">
                     <p class="image-caption">CAD models of the industrial parts</p>
                 </div>
+
             <h3>Hardware Setup</h3>
                 <div class="image-container">
-                    <img src="images/robot_cam_vis.jpg" alt="Real setup">
-                    <!-- <p class="image-caption">Real setup</p> -->
+                    <img src="images/hardware.png" alt="hardware setup">
+  
                 </div>
-
-            </div>
-        </section>
-
-        <section class="section" id="benchmarks">
-            <h2>Benchmarks & Challenges</h2>
-                <h3><a href="https://bop.felk.cvut.cz/challenges/">BOP Industrial Track</a></h3>
-                <p>
-                    The XYZ-IBD dataset is part of the <b>Benchmark for 6D Object Pose Estimation (BOP)</b> and serves as one of the official BOP-Industrial datasets for the BOP Challenge 2025. 
-                    The XYZ-IBD dataset is evaluated on model-based 2D and 6D object detection tasks, following the BOP Challenge 2025 metrics and is hosted on the official BOP-Industrial Leaderboard. 
-                    The challenge will also be featured at the ICCV 2025 R6D Workshop. 
-                </p>
-                <ul class="benchmark-links">
-                    <li><a href="https://bop.felk.cvut.cz/leaderboards/pose-detection-unseen-bop24/bop-industrial/"><b>BOP-Industrial Leaderboard</b></a></li>
-                    <li><a href="https://cmp.felk.cvut.cz/sixd/workshop_2025/"><b>ICCV 2025 Workshop: 10th International Workshop on Recovering 6D Object Pose (R6D)</b></a></li>
-                </ul>
-
-            <h3><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1">Tricky Monocular Depth Track</a></h3>
-            <p>
-                The XYZ-IBD dataset is also associated with the <b>Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b> for the Monocular Depth Estimation task. 
-                Evaluation on XYZ-IBD for this task follows the TRICKY 2025 metrics and is hosted on the official TRICKY 2025 Leaderboard, which will be featured as part of the TRICKY Workshop at ICCV 2025.
-            </p>
-            <ul class="benchmark-links">
-                <li><a href="https://codalab.lisn.upsaclay.fr/competitions/22870"><b>TRICKY challenge 2025 submission system and Leaderboard</b></a></li>
-                <li><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1"><b>ICCV 2025 Workshop: Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b></a></li>
-            </ul>
-            
-        </section> 
-
-        
-        <section class="section" id="download">
-            <h2>Download</h2>
-            <div class="download-section">
-                <p>The pose estimation dataset is available for download at the following links. You can also find the dataset in both the <a href="https://bop.felk.cvut.cz/datasets/">BOP</a> website or <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/tree/main">HuggingFace</a>.</p>
-                <h3>Object 6D Pose Estimation</h3>
-                <ul class="benchmark-links">
-                    <li>PBR-BlenderProc BOP format training images <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_train_pbr.zip">[Part 1]</a>
-                    <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_train_pbr_part2.zip">[Part 2]</a> </li>
-                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_val.zip">Validation Data</a></li>
-                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_test_all.zip">Testing Data</a></li>
-                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_models.zip">Object Models</a></li>
-                </ul>
-                <h3>Depth Estimation</h3>
-                <p>The depth estimation dataset is available for download at the following links. You can also find the dataset in the <a href="https://sites.google.com/view/iccv25tricky/home">TRICKY</a> website.</p>
-                <ul class="benchmark-links">
-                    <li><a href="https://1drv.ms/f/c/86b9ea593df47805/Ej28RZ5pJLdNrWqCJsKaSQwB739NpkC4EoBtj2fz2VShLw?e=PeP6Dz">Real & Synthetic Training Data</a></li>
-                </ul>
-            </div>
         </section>
 
         <section class="section" id="citation">
-            <h3>Citation & License</h3>
-            <p>
+            <h2>Citation & License</h3>
+                <p class="overview-paragraph">
                 XYZ-IBD is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.<br>
                 <b>Custom license available upon request</b>, if you are interested in using the dataset for commercial purposes, please contact us.
             </p>
             <br>
-            <p>
+            <p class="overview-paragraph">
                 If you find this dataset helpful, please cite the following paper:
             </p>
             <div class="citation">
@@ -715,10 +177,10 @@
         </section>
 
         <section class="section" id="contact">
-            <h3>Contact</h3>
-            <p>
+            <h2>Contact</h3>
+                <p class="overview-paragraph">
                 For any questions or issues regarding the dataset, please contact:<br>
-                <a href="mailto:junwen.huang@tum.de">junwen.huang@tum.de</a>, <br>
+                <a href="mailto:junwen.huang@tum.de">junwen.huang@tum.de</a> <br>
                 <a href="mailto:peter.yu@xyzrobotics.com">peter.yu@xyzrobotics.com</a>
             </p>
         </section>
