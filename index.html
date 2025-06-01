@@ -5,32 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XYZ-IBD</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            /* Color Palette */
+            --primary-color: #163460;        /* Modern blue */
+            --primary-dark: #56575a;         /* Darker blue */
+            --primary-light: #7c9ed4;        /* Lighter blue */
+            --secondary-color: #64748b;      /* Slate gray */
+            --accent-color: #111010;         /* Amber accent */
+            --accent-pink:  #2166d6;         /* Modern pink */
+            --text-primary: #000000;         /* Dark gray */
+            --text-secondary: #6b7280;       /* Medium gray */
+            --background: #ffffff;           /* White */
+            --background-alt: #f8fafc;       /* Light gray */
+            --background-section: #ffffff;   /* White sections */
+            --border-color: #e5e7eb;         /* Light border */
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-base: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: var(--font-family);
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            color: #2c3e50;
-            font-size: clamp(14px, 2.2vw, 20px);
-            background-color: #f8f9fa;
+            color: var(--text-primary);
+            font-size: clamp(14px, 2.2vw, 18px);
+            background-color: var(--background-alt);
+            font-weight: 400;
         }
+
         .container {
-            max-width: 2200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 40px 40px;
+            padding: 0 var(--spacing-xl);
         }
+
+        /* Header Styles */
         header {
-            background-color: #2c3e50;
-            background-image: url('images/header_bg.png');
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            background-image: url('images/web_bg.jpg');
             background-size: cover;
             background-position: center;
+            background-blend-mode: overlay;
             color: white;
-            padding: 1.8rem 0;
+            padding: var(--spacing-3xl) 0;
             text-align: center;
             position: relative;
-            margin-bottom: 0px;
+            margin-bottom: 0;
         }
+
         header::before {
             content: '';
             position: absolute;
@@ -38,299 +87,470 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(44, 62, 80, 0.8);
+            background: linear-gradient(135deg, rgba(13, 65, 118, 0.7)0%, rgba(143, 145, 146, 0.5) 100%);
         }
+
         header .container {
             position: relative;
             z-index: 1;
         }
+
         header h1 {
-            font-size: clamp(2em, 5vw, 4.5em);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             margin: 0;
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--spacing-lg);
+            color: white;
         }
+
         header p {
-            font-size: clamp(1.1em, 3vw, 2.2em);
-            margin-top: 20px;
+            font-size: clamp(2rem, 3vw, 1.5rem);
+            margin: 0 auto var(--spacing-xl);
             line-height: 1.4;
-            max-width: 1600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 1200px;
+            font-weight: 400;
+            opacity: 0.95;
+            color: white;
         }
+
         header p .highlight {
             color: white;
             font-weight: 600;
         }
+
         .authors {
-            font-family: 'Open Sans', sans-serif;
-            font-size: clamp(1em, 2vw, 1.4em);
-            margin-top: 30px;
-            line-height: 1.7;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-top: var(--spacing-xl);
+            line-height: 1.6;
+            opacity: 1;
+            font-weight: 400;
+            color: white;
+            letter-spacing: 0.01em;
         }
+
         .authors .affiliation {
-            font-family: 'Arial', sans-serif;
-            font-size: clamp(1em, 2vw, 1.2em);
-            line-height: 1.7;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            color: rgb(255, 255, 255);
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            line-height: 1.6;
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            opacity: 1;
+            color: white;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            font-family: 'Georgia', 'Times New Roman', serif;
         }
+
+        .authors a {
+            color: white !important;
+            text-decoration: underline;
+            font-weight: 400;
+            transition: all 0.2s ease;
+        }
+
+        .authors a:hover {
+            color: white !important;
+            text-decoration: underline;
+            opacity: 0.8;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: var(--background);
+            box-shadow: 0 1px 3px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar .container {
+            padding: 0 var(--spacing-xl);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 0;
+        }
+
+        .nav-item {
+            margin: 0;
+        }
+
+        .nav-link {
+            display: block;
+            padding: var(--spacing-lg) var(--spacing-xl);
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: var(--font-size-base);
+            transition: all 0.2s ease;
+            border-bottom: 2px solid transparent;
+            letter-spacing: 0.01em;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+            background-color: var(--background-alt);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: var(--spacing-sm);
+        }
+
+        /* Typography */
         h2 {
-            color: #03528a;
-            border-bottom: 3px solid #03528a;
-            padding-bottom: 15px;
-            margin-top: 60px;
-            margin-bottom: 40px;
-            font-size: clamp(1.2em, 3vw, 2.8em);
+            color: var(--primary-color);
+            /* border-bottom: 3px solid var(--primary-color); */
+            padding-bottom: var(--spacing-base);
+            margin-top: var(--spacing-1xl);
+            margin-bottom: var(--spacing-1xl);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             text-align: center;
             font-weight: 700;
+            letter-spacing: -0.01em;
         }
+
         h3 {
-            color: #03528a;
-            font-size: clamp(1em, 2.5vw, 2em);
-            margin-top: 50px;
-            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            margin-top: var(--spacing-1xl);
+            margin-bottom: var(--spacing-lg);
             font-weight: 600;
+            letter-spacing: -0.01em;
         }
+
+        p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.7;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        .overview-paragraph {
+            font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+            color: var(--text-primary);
+            font-weight: 400;
+            margin-bottom: var(--spacing-xl);
+            line-height: 1.6;
+        }
+
+        /* Sections */
         .section {
-            margin: 60px 0;
-            background-color: white;
-            padding: 40px;
+            margin: var(--spacing-2xl) 0;
+            background-color: var(--background-section);
+            padding: var(--spacing-2xl);
             border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 3px var(--shadow-color);
+            border: 1px solid var(--border-color);
         }
+
+        /* Images */
         .image-grid {
             display: flex;
             flex-direction: column;
-            gap: 40px;
-            margin: 30px 0;
+            gap: var(--spacing-1xl);
+            margin: var(--spacing-xl) 0;
         }
+
         .image-container {
             text-align: center;
             width: 100%;
         }
+
         .image-container img {
             width: 100%;
             height: auto;
-            border-radius: 0;
-            box-shadow: none;
-            transition: transform 0.3s ease;
+            border-radius: 8px;
+            /* box-shadow: 0 4px 6px var(--shadow-color); */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .image-container img:hover {
-            transform: scale(1.01);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
+
+        .image-caption {
+            margin-top: var(--spacing-base);
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.5;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Lists */
         .bullet-points {
             list-style-type: none;
             padding-left: 0;
-            margin-top: 30px;
-            font-size: clamp(1em, 2vw, 1.4em);
-            color: #2c3e50;
+            margin-top: var(--spacing-xl);
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            color: var(--text-primary);
         }
+
         .bullet-points li {
-            margin-bottom: 25px;
+            margin-bottom: var(--spacing-lg);
             position: relative;
-            padding-left: 45px;
-            line-height: 1.5;
+            padding-left: 2rem;
+            line-height: 1.6;
         }
+
         .bullet-points li:before {
             content: "•";
             position: absolute;
             left: 0;
-            font-size: 1.8em;
+            font-size: 1.5em;
             top: -0.1em;
             line-height: 1;
-            color: #03528a;
+            color: var(--accent-color);
+            font-weight: 600;
         }
+
         .highlight {
             font-weight: 600;
-            color: #03528a;
+            color: var(--primary-color);
         }
+
+        /* Download Section */
         .download-section {
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 12px;
-            margin: 30px 0;
-            border: 1px solid #e9ecef;
-        }
-        .citation {
-            background-color: #f8f9fa;
-            padding: 25px;
+            background-color: var(--background-alt);
+            padding: var(--spacing-xl);
             border-radius: 8px;
-            font-family: 'Courier New', monospace;
-            font-size: clamp(0.9em, 1.8vw, 1.1em);
+            margin: var(--spacing-xl) 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .citation {
+            background-color: var(--background-alt);
+            padding: var(--spacing-xl);
+            border-radius: 8px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: clamp(0.875rem, 1.8vw, 1rem);
             line-height: 1.6;
             white-space: pre-wrap;
-            border: 1px solid #e9ecef;
+            border: 1px solid var(--border-color);
             text-align: left;
+            color: var(--text-secondary);
         }
+
         .benchmark-links {
             list-style-type: none;
             padding-left: 0;
-            margin-top: 25px;
-            font-size: clamp(1em, 2vw, 1.4em);
+            margin-top: var(--spacing-lg);
+            font-size: clamp(1rem, 2vw, 1.125rem);
         }
+
         .benchmark-links li {
-            margin-bottom: 20px;
+            margin-bottom: var(--spacing-base);
             position: relative;
-            padding-left: 35px;
+            padding-left: 1.5rem;
         }
+
         .benchmark-links li:before {
             content: "•";
             position: absolute;
             left: 0;
-            font-size: 1.4em;
-            top: -0.1em;
+            font-size: 1.25em;
+            top: -0.05em;
             line-height: 1;
-            color: #03528a;
+            color: var(--accent-color);
+            font-weight: 600;
         }
-        .benchmark-links a {
-            color: #03528a;
+
+        /* Links */
+        a {
+            color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
+            font-weight: 500;
         }
-        .benchmark-links a:hover {
-            color: #088ff0;
-            text-decoration: underline;
+
+        a:hover {
+            color: var(--primary-light);
         }
+
+        .benchmark-links a,
+        .download-section a {
+            color: var(--accent-pink) !important;
+            font-weight: 500;
+        }
+
+        .benchmark-links a:hover,
+        .download-section a:hover {
+            color: var(--primary-color) !important;
+        }
+
+        /* Social Links */
         .social-links {
-            margin-top: 30px;
+            margin-top: var(--spacing-xl);
             text-align: center;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
         }
+
         .social-links a {
             color: white;
-            font-size: clamp(1em, 2vw, 1.8em);
-            margin: 0 10px;
+            font-size: clamp(1rem, 2vw, 1.25rem);
             text-decoration: none;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.5em;
-            text-align: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-sm) var(--spacing-base);
+            border-radius: 6px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            font-weight: 500;
         }
+
         .social-links a img.social-icon {
             height: 1em;
-            max-height: 1.5em;
-            min-height: 0.9em;
             width: auto;
             display: inline-block;
             vertical-align: middle;
         }
+
         .social-links a:hover {
-            color: #088ff0;
+            background-color: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
+
         .social-links span {
-            font-size: 0.6em;
-            vertical-align: middle;
-            margin-left: 8px;
-        }
-        a {
-            color: #03528a;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        a:hover {
-            color: #088ff0;
-        }
-        p {
-            font-size: clamp(1em, 2vw, 1.3em);
-            line-height: 1.6;
-            margin-bottom: 25px;
-            color: #2c3e50;
-        }
-        .overview-paragraph {
-            font-size: clamp(1em, 2.5vw, 1.8em);
-            color: #555;
-            font-weight: 400;
-            margin-bottom: 30px;
+            font-size: 0.9em;
         }
 
-        /* Responsive Design */
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Offset for fixed navbar when jumping to sections */
+        section[id] {
+            scroll-margin-top: 40px;
+        }
+
+        /* Mobile Navigation */
         @media (max-width: 768px) {
-            body {
-                font-size: clamp(13px, 3vw, 16px);
-                padding: 5px;
-            }
             .container {
-                padding: 0 1rem;
+                padding: 0 var(--spacing-base);
             }
-            header h1 {
-                font-size: 2.2rem;
+
+            .navbar .container {
+                padding: 0 var(--spacing-base);
             }
-            header p {
-                font-size: clamp(1em, 4vw, 1.2em);
+
+            .nav-content {
+                justify-content: space-between;
+                min-height: 50px;
             }
-            .image-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+
+            .nav-toggle {
+                display: block;
             }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--background);
+                flex-direction: column;
+                box-shadow: 0 4px 6px var(--shadow-color);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-link {
+                padding: var(--spacing-base) var(--spacing-lg);
+                border-bottom: 1px solid var(--border-color);
+                border-left: none;
+                font-size: var(--font-size-base);
+            }
+
+            .nav-link:hover {
+                background-color: var(--background-alt);
+                border-bottom-color: var(--border-color);
+                border-left: 3px solid var(--primary-color);
+            }
+
+            .section {
+                margin: var(--spacing-xl) 0;
+                padding: var(--spacing-lg);
+            }
+
             .bullet-points li {
-                font-size: clamp(0.95em, 2vw, 1.1em);
-                padding-left: 25px;
+                font-size: var(--font-size-base);
+                padding-left: 1.5rem;
             }
+
             .social-links {
                 flex-direction: column;
-                gap: 1rem;
+                gap: var(--spacing-base);
             }
-            .social-link {
-                width: 100%;
-                justify-content: center;
-                font-size: 1rem;
-                padding: 0.7rem 1rem;
-            }
+
             h2 {
-                font-size: 1.3rem;
-                margin: 2rem 0 1rem;
+                font-size: var(--font-size-2xl);
+                margin: var(--spacing-xl) 0 var(--spacing-lg);
             }
+
             h3 {
-                font-size: 1.1rem;
-                margin-top: 1.5rem;
-                margin-bottom: 1rem;
-            }
-            .citation {
-                font-size: clamp(0.9em, 2vw, 1em);
-            }
-            .overview-paragraph {
-                font-size: clamp(1em, 3vw, 1.1em);
+                font-size: var(--font-size-xl);
+                margin-top: var(--spacing-lg);
+                margin-bottom: var(--spacing-base);
             }
         }
+
         @media (max-width: 480px) {
             body {
                 font-size: 15px;
             }
+
             header h1 {
-                font-size: 1.3rem;
+                font-size: var(--font-size-3xl);
             }
-            .header-subtitle {
-                font-size: 0.9rem;
+
+            .section {
+                padding: var(--spacing-base);
             }
-            .section-card {
-                padding: 0.7rem;
-            }
+
             h2 {
-                font-size: 1.1rem;
+                font-size: var(--font-size-xl);
             }
+
             h3 {
-                font-size: 1rem;
+                font-size: var(--font-size-lg);
             }
-            .feature-list li {
-                font-size: 0.95em;
-                padding-left: 1.1rem;
-            }
-        }
-        .benchmark-links a,
-        .download-section a {
-            color: #ee7cb9 !important; /* hot pink */
-            font-weight: 600;
-        }
-        .benchmark-links a:hover,
-        .download-section a:hover {
-            color: #ee7cb9  !important; /* lighter hot pink on hover */
         }
     </style>
 
@@ -341,7 +561,8 @@
             <h1>XYZ-IBD</h1>
             <p><span class="highlight">A High-precision Bin-picking Dataset for Object 6D pose estimation and Monocular Depth Estimation Capturing Real-world Industrial Complexity</span></p>
             <div class="authors">
-                Junwen Huang<sup>1,2</sup>, Jizhong Liang<sup>3,5</sup>, Jiaqi Hu<sup>1</sup>, Martin Sundermeyer<sup>4</sup>, Peter KT Yu<sup>5</sup>, Nassir Navab<sup>1,2</sup>, Benjamin Busam<sup>1,2</sup>
+                <a href="https://demianjh.github.io/">Junwen Huang</a><sup>1,2</sup>, Jizhong Liang<sup>3,5</sup>, Jiaqi Hu<sup>1</sup>, <a href="https://scholar.google.de/citations?user=LIhGM2YAAAAJ&hl=de">Martin Sundermeyer</a><sup>4</sup>, <a href="https://scholar.google.com/citations?user=a5RZKIkAAAAJ&hl=de">Peter KT Yu</a><sup>5</sup>, <a href="https://www.professoren.tum.de/navab-nassir">Nassir Navab</a><sup>1,2</sup>, <a href="https://www.cs.cit.tum.de/camp/members/benjamin-busam/">Benjamin Busam</a><sup>1,2</sup>
+                
                 <div class="affiliation">
                     <sup>1</sup>Technical University of Munich, <sup>2</sup>Munich Center for Machine Learning, 
                     <sup>3</sup>Shanghai Jiaotong University, <sup>4</sup>Google, <sup>5</sup>XYZ Robotics
@@ -359,8 +580,36 @@
         </div>
     </header>
 
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#overview" class="nav-link">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#benchmarks" class="nav-link">Benchmarks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#download" class="nav-link">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#citation" class="nav-link">Citation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
-        <section class="section">
+        <section class="section" id="overview">
             <h2>Overview</h2>
             <p class="overview-paragraph">
                 The XYZ Industrial Bin Picking Dataset (XYZ-IBD) is a bin-picking dataset for <b>6D pose estimation</b> and <b>depth estimation</b>, capturing real-world industrial-grade complexity through <b>challenging geometries, materials, occlusions and clutter</b>. The dataset represents authentic robotic grasping scenarios with <b>millimeter-accurate annotations</b>.
@@ -380,23 +629,30 @@
             <div class="image-grid">
                 <div class="image-container">
                     <img src="images/teaser_v3.png" alt="Teaser Figure"> 
+                    
                 </div>
             </div>
             <h3>Industrial Parts</h3>
             <div class="image-grid">
                 <div class="image-container">
                     <img src="images/real_parts_ver.png" alt="Real industrial parts">
+                    <p class="image-caption">Real industrial parts</p>
                 </div>
-            <h3>CAD Models</h3>
+
                 <div class="image-container">
                     <img src="images/cad_ver.png" alt="CAD models of the industrial parts">
+                    <p class="image-caption">CAD models of the industrial parts</p>
                 </div>
-            </div>
-            <br>
+            <h3>Hardware Setup</h3>
+                <div class="image-container">
+                    <img src="images/robot_cam_vis.jpg" alt="Real setup">
+                    <!-- <p class="image-caption">Real setup</p> -->
+                </div>
 
+            </div>
         </section>
-        
-        <section class="section">
+
+        <section class="section" id="benchmarks">
             <h2>Benchmarks & Challenges</h2>
                 <h3><a href="https://bop.felk.cvut.cz/challenges/">BOP Industrial Track</a></h3>
                 <p>
@@ -422,7 +678,7 @@
         </section> 
 
         
-        <section class="section">
+        <section class="section" id="download">
             <h2>Download</h2>
             <div class="download-section">
                 <p>The pose estimation dataset is available for download at the following links. You can also find the dataset in both the <a href="https://bop.felk.cvut.cz/datasets/">BOP</a> website or <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/tree/main">HuggingFace</a>.</p>
@@ -442,21 +698,23 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section" id="citation">
             <h3>Citation & License</h3>
+            <p>
+                XYZ-IBD is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.<br>
+                <b>Custom license available upon request</b>, if you are interested in using the dataset for commercial purposes, please contact us.
+            </p>
+            <br>
             <p>
                 If you find this dataset helpful, please cite the following paper:
             </p>
             <div class="citation">
                 @inproceedings{comming soon}
             </div>
-            <p>
-                XYZ-IBD is licensed under the <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> license.<br>
-                <b>Custom license available upon request</b>, if you are interested in using the dataset for commercial purposes, please contact us.
-            </p>
+            
         </section>
 
-        <section class="section">
+        <section class="section" id="contact">
             <h3>Contact</h3>
             <p>
                 For any questions or issues regarding the dataset, please contact:<br>
@@ -465,5 +723,29 @@
             </p>
         </section>
     </div>
+
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
