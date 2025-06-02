@@ -79,7 +79,7 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(9, 55, 99, 0.7)0%, rgba(125, 128, 128, 0.5) 100%);
+    background: linear-gradient(0deg, rgba(1, 55, 130, 0.7)0%, rgba(128, 127, 127, 0.5) 100%);
 }
 
 header .container {
@@ -200,7 +200,7 @@ header p .highlight {
 
 .nav-link {
     display: block;
-    padding: var(--spacing-lg) var(--spacing-xl);
+    padding: var(--spacing-base) var(--spacing-base);
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
@@ -262,6 +262,7 @@ p {
     font-weight: 400;
     margin-bottom: var(--spacing-xl);
     line-height: 1.6;
+    text-align: justify;
 }
 
 /* Sections */
@@ -321,7 +322,7 @@ p {
 
 .image-caption {
     margin-top: var(--spacing-base);
-    font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    font-size: clamp(1em, 1.8vw, 1em);
     color: var(--text-secondary);
     /* font-style: italic; */
     line-height: 1.5;
@@ -368,7 +369,7 @@ p {
 .download-section {
     background-color: var(--background-section);
     padding: var(--spacing-base);
-    border-radius: 8px;
+    border-radius: 18px;
     margin: var(--spacing-base) 0;
     /* border: 1px solid var(--border-color); */
 }

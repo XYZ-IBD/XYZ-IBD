@@ -43,13 +43,16 @@
                 </button>
                 <ul class="nav-menu">
                     <li class="nav-item">
-                        <a href="#overview" class="nav-link">Overview</a>
+                        <a href="#overview" class="nav-link">Introduction</a>
                     </li>
                     <li class="nav-item">
                         <a href="#benchmarks" class="nav-link">Benchmarks</a>
                     </li>
                     <li class="nav-item">
                         <a href="#download" class="nav-link">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#gallery" class="nav-link">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a href="#citation" class="nav-link">Citation</a>
@@ -76,54 +79,60 @@
                 <li><span class="highlight">Instances:</span>  24 instances per scene on average, with up to 60 instances in some scenes</li>
                 <li><span class="highlight">Sensors:</span> 
                     XYZ Robotics DLP structured light, Photoneo PhoXi laser scanner, RealSense D415 stereo camera</li>
-                <li><span class="highlight">Synthetic Data:</span> Realistic bin-picking scenes similated with BlenderProc, providing 50k+ synthetic training images</li>
+                <li><span class="highlight">Synthetic Data:</span> Realistic bin-picking scene simulation, providing 50k+ synthetic training images</li>
             </ul><br>
-
-            
         </section>
 
-        <section class="section box" id="benchmarks">
+        <section class="section" id="benchmarks">
             <h2>Benchmarks & Challenges</h2>
-                <h3><a href="https://bop.felk.cvut.cz/challenges/"><b>BOP Industrial Track</b></a></h3>
+            <div class="download-section">
+                <h3>BOP Industrial Track</h3>
                 <p class="overview-paragraph">
                     The XYZ-IBD dataset is part of the <b>Benchmark for 6D Object Pose Estimation (BOP)</b> and serves as one of the official BOP-Industrial datasets for the BOP Challenge 2025. 
                     The XYZ-IBD dataset is evaluated on model-based 2D and 6D object detection tasks, following the BOP Challenge 2025 metrics and is hosted on the official BOP-Industrial Leaderboard. 
                     The challenge will also be featured at the ICCV 2025 R6D Workshop. 
                 </p>
                 <ul class="benchmark-links">
-                    <li><a href="https://bop.felk.cvut.cz/leaderboards/pose-detection-unseen-bop24/bop-industrial/"><b>BOP Challenge 2025 Industrial Track</b></a></li>
+                    <li><a href="https://bop.felk.cvut.cz/challenges/bop-challenge-2025/"><b>BOP Challenge 2025 Industrial Track</b></a></li>
                     <li><a href="https://cmp.felk.cvut.cz/sixd/workshop_2025/"><b>ICCV 2025 Workshop: 10th International Workshop on Recovering 6D Object Pose (R6D)</b></a></li>
                 </ul>
-            
-                <br>
-            
-                <h3><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1"><b>Tricky Monocular Depth Track</b></a></h3>
-            <p class="overview-paragraph">
-                The XYZ-IBD dataset is also associated with the <b>Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b> for the Monocular Depth Estimation task. 
-                Evaluation on XYZ-IBD for this task follows the TRICKY 2025 metrics and is hosted on the official TRICKY 2025 Leaderboard, which will be featured as part of the TRICKY Workshop at ICCV 2025.
-            </p>
-            <ul class="benchmark-links">
-                <li><a href="https://codalab.lisn.upsaclay.fr/competitions/22870"><b>TRICKY challenge 2025 submission system and Leaderboard</b></a></li>
-                <li><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1"><b>ICCV 2025 Workshop: Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b></a></li>
-            </ul>
-            
+            </div>
+
+            <br>
+
+            <div class="download-section">
+                <h3>TRICKY Monocular Depth Track</h3>
+                    <p class="overview-paragraph">
+                    The XYZ-IBD dataset is also associated with the <b>Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b> for the Monocular Depth Estimation task. 
+                    Evaluation on XYZ-IBD for this task follows the TRICKY 2025 metrics and is hosted on the official TRICKY 2025 Leaderboard, which will be featured as part of the TRICKY Workshop at ICCV 2025.
+                    </p>
+                    <ul class="benchmark-links">
+                        <li><a href="https://codalab.lisn.upsaclay.fr/competitions/22870"><b>TRICKY challenge 2025 submission system and Leaderboard</b></a></li>
+                        <li><a href="https://sites.google.com/view/iccv25tricky/home#h.9sn9fynz7to1"><b>ICCV 2025 Workshop: Transparent & Reflective Objects In the Wild Challenges (TRICKY)</b></a></li>
+                    </ul>
+            </div>
+
         </section> 
 
-        
-        <section class="section box" id="download">
+        <br><br>
+        <section class="section" id="download">
             <h2>Download</h2>
             <div class="download-section">
-                <p class="overview-paragraph">
-                    The pose estimation dataset is available for download at the following links. You can also find the dataset in both the <a href="https://bop.felk.cvut.cz/datasets/">BOP</a> website or <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/tree/main">HuggingFace</a>.</p>
                 <h3>Object 6D Pose Estimation</h3>
-                <ul class="benchmark-links">
-                    <li>PBR-BlenderProc BOP format training images <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_train_pbr.zip">[Part 1]</a>
-                    <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_train_pbr_part2.zip">[Part 2]</a> </li>
-                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_val.zip">Validation Data</a></li>
-                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_test_all.zip">Testing Data</a></li>
-                    <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_models.zip">Object Models</a></li>
-                </ul>
-                <br>
+                    <p class="overview-paragraph">
+                        The pose estimation dataset is available for download at the following links. You can also find the dataset in both the <a href="https://bop.felk.cvut.cz/datasets/">BOP</a> website or <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/tree/main">HuggingFace</a>.</p>
+                    <ul class="benchmark-links">
+                        <li>PBR-BlenderProc BOP format training images <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_train_pbr.zip">[Part 1]</a>
+                        <a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_train_pbr_part2.zip">[Part 2]</a> </li>
+                        <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_val.zip">Validation Data</a></li>
+                        <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_test_all.zip">Testing Data</a></li>
+                        <li><a href="https://huggingface.co/datasets/bop-benchmark/xyzibd/resolve/main/xyzibd_models.zip">Object Models</a></li>
+                    </ul>
+            </div>
+
+            <br>
+
+            <div class="download-section">
                 <h3>Depth Estimation</h3>
                 <p class="overview-paragraph">
                     The depth estimation dataset is available for download at the following links. You can also find the dataset in the <a href="https://sites.google.com/view/iccv25tricky/home">TRICKY</a> website.</p>
@@ -133,30 +142,31 @@
             </div>
         </section>
 
-        <section class="section" id="scene-examples">
-        <h3>Scene Examples</h3>
+        <br>
+        <section class="section" id="gallery">
+        <h2>Gallery</h2>
             <div class="image-grid">
                 <div class="image-container">
                     <img src="images/teaser_v3.png" alt="Teaser Figure"> 
-                    
+                    <p class="image-caption">Scene Examples</p>
                 </div>
             </div>
-            <h3>Industrial Parts</h3>
+            <!-- <h3>Industrial Parts</h3> -->
             <div class="image-grid">
                 <div class="image-container">
                     <img src="images/real_parts_ver.png" alt="Real industrial parts">
                     <p class="image-caption">Real industrial parts</p>
                 </div>
-
+                <br>
                 <div class="image-container">
                     <img src="images/cad_ver.png" alt="CAD models of the industrial parts">
                     <p class="image-caption">CAD models of the industrial parts</p>
                 </div>
-
-            <h3>Hardware Setup</h3>
+                <br>
+            <!-- <h3>Hardware Setup</h3> -->
                 <div class="image-container">
                     <img src="images/hardware.png" alt="hardware setup">
-  
+                    <p class="image-caption">Hardware Setup</p>
                 </div>
         </section>
 
