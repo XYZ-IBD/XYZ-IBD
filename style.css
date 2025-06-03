@@ -383,8 +383,18 @@ p {
     line-height: 1.6;
     white-space: pre-wrap;
     border: 1px solid var(--border-color);
-    text-align: left;
+    text-align: left !important;
     color: var(--text-secondary);
+}
+
+/* Additional specificity for citation text alignment */
+#citation .citation,
+.section .citation {
+    text-align: left !important;
+}
+
+.citation * {
+    text-align: left !important;
 }
 
 .benchmark-links {
