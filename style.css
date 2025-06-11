@@ -70,11 +70,11 @@ header {
     text-align: center;
     position: relative;
     margin-bottom: 0;
-    max-height: 40vh;
+    max-height: 60vh;
     overflow: hidden;
     display: flex;
     align-items: center;
-    min-height: 25vh;
+    min-height: 30vh;
 }
 
 header::before {
