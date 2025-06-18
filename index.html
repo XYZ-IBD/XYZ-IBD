@@ -89,6 +89,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Fallback for if external resources fail -->
+    <style>
+        /* Fallback styles in case external CSS fails */
+        body { font-family: Arial, sans-serif; }
+        .fas, .fab { display: inline-block; width: 1em; height: 1em; }
+    </style>
 </head>
 <body>
     <header>
@@ -172,27 +179,27 @@
             <div class="affiliation">
                 <div class="affiliation-item">
                     <div class="institution-logo">
-                        <img src="logos/tum.png" alt="TUM Logo">
+                        <img src="logos/tum.png" alt="TUM Logo" style="max-height: 90px; max-width: 210px; width: auto; height: auto; object-fit: contain;">
                     </div>
                 </div>
                 <div class="affiliation-item">
                     <div class="institution-logo">
-                        <img src="logos/MCML.jpg" alt="MCML Logo">
+                        <img src="logos/MCML.jpg" alt="MCML Logo" style="max-height: 110px; max-width: 280px; width: auto; height: auto; object-fit: contain;">
                     </div>
                 </div>
                 <div class="affiliation-item">
                     <div class="institution-logo">
-                        <img src="logos/sjtu.png" alt="SJTU Logo">
+                        <img src="logos/sjtu.png" alt="SJTU Logo" style="max-height: 90px; max-width: 90px; width: auto; height: auto; object-fit: contain;">
                     </div>
                 </div>
                 <div class="affiliation-item">
                     <div class="institution-logo">
-                        <img src="logos/Google_logo.svg.webp" alt="Google Logo">
+                        <img src="logos/Google_logo.svg.webp" alt="Google Logo" style="max-height: 50px; max-width: 150px; width: auto; height: auto; object-fit: contain;">
                     </div>
                 </div>
                 <div class="affiliation-item">
                     <div class="institution-logo">
-                        <img src="logos/xyz.jpg" alt="XYZ Robotics Logo">
+                        <img src="logos/xyz.jpg" alt="XYZ Robotics Logo" style="max-height: 120px; max-width: 300px; width: auto; height: auto; object-fit: contain;">
                     </div>
                 </div>
             </div>

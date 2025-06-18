@@ -1182,7 +1182,7 @@ section[id] {
     }
 }
 
-/* Affiliation Section */
+/* Affiliation Section - Enhanced for GitHub Pages compatibility */
 .affiliation-section {
     padding: var(--spacing-lg) 0;
     margin: 0;
@@ -1221,36 +1221,60 @@ section[id] {
     min-width: 60px !important;
 }
 
-.affiliation-section .institution-logo img {
+/* Base logo styles with high specificity */
+.affiliation-section .institution-logo img,
+.affiliation-section .affiliation-item img {
     max-height: 50px !important;
     max-width: 150px !important;
     width: auto !important;
     height: auto !important;
     object-fit: contain !important;
+    display: block !important;
 }
 
-/* Individual logo configurations */
-.affiliation-section .institution-logo img[alt="TUM Logo"] {
+/* Individual logo configurations with maximum specificity */
+.affiliation-section .institution-logo img[alt="TUM Logo"],
+.affiliation-section .affiliation-item img[alt="TUM Logo"] {
     max-height: 90px !important;
     max-width: 210px !important;
 }
 
-.affiliation-section .institution-logo img[alt="MCML Logo"] {
+.affiliation-section .institution-logo img[alt="MCML Logo"],
+.affiliation-section .affiliation-item img[alt="MCML Logo"] {
     max-height: 110px !important;
     max-width: 280px !important;
 }
 
-.affiliation-section .institution-logo img[alt="SJTU Logo"] {
+.affiliation-section .institution-logo img[alt="SJTU Logo"],
+.affiliation-section .affiliation-item img[alt="SJTU Logo"] {
     max-height: 90px !important;
     max-width: 90px !important;
 }
 
-.affiliation-section .institution-logo img[alt="Google Logo"] {
+.affiliation-section .institution-logo img[alt="Google Logo"],
+.affiliation-section .affiliation-item img[alt="Google Logo"] {
     max-height: 50px !important;
     max-width: 150px !important;
 }
 
-.affiliation-section .institution-logo img[alt="XYZ Robotics Logo"] {
+.affiliation-section .institution-logo img[alt="XYZ Robotics Logo"],
+.affiliation-section .affiliation-item img[alt="XYZ Robotics Logo"] {
     max-height: 120px !important;
     max-width: 300px !important;
+}
+
+/* Fallback styles for GitHub Pages */
+body .affiliation-section img {
+    max-height: 50px !important;
+    max-width: 150px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+/* Additional specificity for problematic cases */
+html body .affiliation-section .institution-logo img {
+    max-height: 50px !important;
+    max-width: 150px !important;
+    width: auto !important;
+    height: auto !important;
 } 
