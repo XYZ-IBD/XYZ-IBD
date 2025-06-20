@@ -630,7 +630,7 @@ section[id] {
 
 .title-section {
     text-align: center;
-    margin-bottom: var(--spacing-base);
+    margin-bottom: var(--spacing-xs);
 }
 
 .subtitle {
@@ -642,6 +642,8 @@ section[id] {
     color: white;
     max-width: 1500px;
     text-align: center;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .authors-list {
@@ -1177,6 +1179,8 @@ section[id] {
     
     .social-links {
         gap: var(--spacing-base);
+        margin-top: 0;
+        margin-bottom: 0;
     }
     
     .social-link {
